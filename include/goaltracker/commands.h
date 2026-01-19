@@ -37,12 +37,16 @@ void viewTaskDescription(std::string taskName, std::string goalName, std::string
 //update functions (update)
 void updateGoalName(std::string newName, std::string goalName);
 void updateGoalDescription(std::string newDescription, std::string goalName);
+void updateGoalPosition(std::string goalName, int goalPosition);
+void updateAllGoalPositions(); //this one gives each goal and asks for what position it should be in one at a time (no duplicates allowed? or just push back the one there) Should show the live list before and hopefully as you are changing it.
 void updateStepName(std::string newName, std::string name, std::string goalName);
 void updateStepDescription(std::string newDescription, std::string name, std::string goalName);
 void updateStepPosition(std::string name, std::string goalName, int stepPosition);
+void updateAllStepPositions(std::string goalName);
 void updateTaskName(std::string name, std::string goalName, std::string stepName);
 void updateTaskDescription(std::string name, std::string goalName, std::string stepName);
 void updateTaskPosition(std::string name, std::string goalName, std::string stepName, int taskPosition);
+void updateAllTaskPositions(std::string goalName, std::string stepName);
 
     //completed updates
 void completeGoal(std::string goalName);

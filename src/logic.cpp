@@ -10,9 +10,10 @@
 #include "goaltracker/storage.h"
 #include "goaltracker/storage.h"
 
+//NEED TO ADD VERIFICATION CHECKS, MAKE SURE NAMES ARE ALL VALID AND WHAT HAPPENS IF THEY AREN'T, AND THAT ALL THE VALUES PROVIDED FOR CREATION ARE CORRECT!!! NEXT TIME
 //get functions
 
-Goal getGoal(std::string name) {
+std::optional<Goal> getGoal(std::string name) {
     State state = getCurrentState();
     int currentGoalsSize = state.goals.size();
     int completedGoalsSize = state.completedGoals.size();
@@ -27,8 +28,24 @@ Goal getGoal(std::string name) {
         }
     }
 
-    return nullptr; //figure out null pointer?
+    return std::nullopt; //figure out null pointer?
 }
+
+
+std::optional<Step> getStep(std::string name, std::string goalName) {
+    Goal ownerGoal = getGoal(goalName).value();
+    int stepAmount = ownerGoal.steps.size(); //what does narrowing conversion mean?
+    for (int i = 0; i < stepAmount; i++) {
+        if (ownerGoal.steps[i].name == name) {
+            return ownerGoal.steps[i];
+        }
+    }
+
+    return std::nullopt;//figure out null pointer?
+}
+
+
+
 
 //create functions
 Goal createGoal(std::string goalName, std::string goalDescription) {
@@ -38,7 +55,31 @@ Goal createGoal(std::string goalName, std::string goalDescription) {
     newGoal.currentStep = 0;
     newGoal.completed = false;
 
+    State state = getCurrentState();
+    state.goals.push_back(newGoal);
+
     return newGoal;
 }
+
+Step createStep(std::string stepName, std::string stepDescription, std::string goalName) {
+    Step newStep;
+    newStep.name = std::move(stepName);
+    newStep.description = std::move(stepDescription);
+    newStep.currentTask = 0;
+    Goal ownerGoal = getGoal(goalName).value();
+    ownerGoal.steps.push_back(newStep); //add step to the end of the last goal
+
+    return  newStep;
+}
+
+
+
+
+
+
+
+
+
+
 
 
