@@ -13,6 +13,9 @@
 //NEED TO ADD VERIFICATION CHECKS, MAKE SURE NAMES ARE ALL VALID AND WHAT HAPPENS IF THEY AREN'T, AND THAT ALL THE VALUES PROVIDED FOR CREATION ARE CORRECT!!! NEXT TIME
 //get functions
 
+//Need to start testing these functions independendently soon, including edge cases. Learn best way to do testing in C++!!
+//might make sense to make two delete goal function for delete from goals and delete from completed goals and that way can use those functions when moving from complete to not complete and vice versa... + can use both for full delete function???
+
 std::optional<Goal> getGoal(std::string name) {
     State state = getCurrentState();
     int currentGoalsSize = state.goals.size();
@@ -44,6 +47,19 @@ std::optional<Step> getStep(std::string name, std::string goalName) {
     return std::nullopt;//figure out null pointer?
 }
 
+std::optional<Task> getTask(std::string name, std::string goalName, std::string stepName) {
+    Goal ownerGoal = getGoal(goalName).value();
+    Step ownerStep = getStep(stepName, goalName).value();
+    int taskAmount = ownerStep.tasks.size();
+
+    for (int i = 0; i < taskAmount; i++) {
+        if (ownerStep.tasks[i].name == name) {
+            return ownerStep.tasks[i];
+        }
+    }
+
+    return std::nullopt;
+}
 
 
 
@@ -72,12 +88,49 @@ Step createStep(std::string stepName, std::string stepDescription, std::string g
     return  newStep;
 }
 
+Task createTask(std::string taskName, std::string taskDescription, std::string goalName, std::string stepName) {
+    Task newTask;
+    newTask.name = std::move(taskName);
+    newTask.description = std::move(taskDescription);
+
+    Step ownerStep = getStep(stepName, goalName).value();
+    ownerStep.tasks.push_back(newTask);
+
+    return newTask;
+}
 
 
 
 
 
+//update functions
 
+void CompleteGoal(std::string goalName) {
+    Goal ownerGoal = getGoal(goalName).value();
+
+    //check if already completed
+    if (ownerGoal.completed == true) {
+        return;
+    }
+
+    State state = getCurrentState();
+
+    //add to completed goals
+    state.completedGoals.push_back(ownerGoal);
+
+    //remove from goals
+    int currentIndex;
+    int currentGoalsSize = state.goals.size();
+    for (int i = 0; i < currentGoalsSize; i++) {
+        if (state.goals[i].name == goalName) {
+            currentIndex = i;
+            break;
+        }
+    }
+
+    state.goals.erase(state.goals.begin() + currentIndex); //make sure this is the right position
+
+}
 
 
 

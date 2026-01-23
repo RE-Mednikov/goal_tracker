@@ -15,7 +15,7 @@
 //create functions (note these return the newly created object)
 Goal createGoal(std::string goalName, std::string goalDescription);
 Step createStep(std::string stepName, std::string stepDescription, std::string goalName);
-Step createTask(std::string taskName, std::string taskDescription, std::string goalName, std::string stepName);
+Task createTask(std::string taskName, std::string taskDescription, std::string goalName, std::string stepName);
 
 //get functions
 std::optional<Goal> getGoal(std::string name);
