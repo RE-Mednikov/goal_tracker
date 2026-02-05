@@ -9,6 +9,7 @@
 #include "goaltracker/data.h"
 #include "goaltracker/storage.h"
 #include "goaltracker/storage.h"
+#include <optional>
 
 //NEED TO ADD VERIFICATION CHECKS, MAKE SURE NAMES ARE ALL VALID AND WHAT HAPPENS IF THEY AREN'T, AND THAT ALL THE VALUES PROVIDED FOR CREATION ARE CORRECT!!! NEXT TIME
 //get functions

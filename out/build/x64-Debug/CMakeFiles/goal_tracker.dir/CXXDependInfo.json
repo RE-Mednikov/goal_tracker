@@ -1,0 +1,45 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "MSVC",
+	"compiler-id" : "MSVC",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker/out/build/x64-Debug",
+	"dir-cur-src" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker",
+	"dir-top-bld" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker/out/build/x64-Debug",
+	"dir-top-src" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"C:\\Users\\Arie Mednikov\\source\\repos\\RE-Mednikov\\goal_tracker\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker/out/build/x64-Debug/CMakeFiles/goal_tracker.dir",
+	"sources" : 
+	{
+		"CMakeFiles/goal_tracker.dir/src/commands.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker/src/commands.cpp"
+		},
+		"CMakeFiles/goal_tracker.dir/src/logic.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker/src/logic.cpp"
+		},
+		"CMakeFiles/goal_tracker.dir/src/main.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker/src/main.cpp"
+		},
+		"CMakeFiles/goal_tracker.dir/src/storage.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Arie Mednikov/source/repos/RE-Mednikov/goal_tracker/src/storage.cpp"
+		}
+	}
+}
