@@ -24,8 +24,10 @@ std::optional<Task> getTask(std::string name, std::string goalName, std::string 
 
 //update
 void completeGoal(std::string goalName);
-void completeStep(std::string stepName, std::string goalName);
-void completeTask(std::string taskName, std::string goalName, std::string stepName);
+void completeStep(std::string goalName);
+void completeSpecificStep(std::string stepName, std::string goalName);
+void completeTask(std::string stepName, std::string goalName); //completes the first task in the task list
+void completeSpecificTask(std::string taskName, std::string goalName, std::string stepName); //completes specific task in the task list
 void unCompleteGoal(std::string goalName);
 void unCompleteStep(std::string stepName, std::string goalName);
 void unCompleteTask(std::string taskName, std::string goalName, std::string stepName);

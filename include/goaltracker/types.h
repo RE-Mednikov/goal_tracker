@@ -11,20 +11,22 @@
 struct Task {
     std::string name;
     std::string description;
+    bool completed;
 };
 
 struct Step {
     std::string name;
     std::vector<Task> tasks;
+    std::vector<Task> completedTasks;
     std::string description;
-    int currentTask; //tells us which tasks have been completed and which haven't
+    bool completed;
 };
 
 struct Goal {
     std::string name;
     std::vector<Step> steps;
+    std::vector<Step> completedSteps;
     std::string description;
-    int currentStep; //tells us which steps have been completed and which haven't
     bool completed; //not actually required (can just check the states array), but might make it easier to do a check if goal completed function
 };
 
